@@ -10,11 +10,11 @@ using UnityEngine.UIElements;
 public class LevelGeneratorCustomInspector : Editor
 {
     [SerializeField]
-    int level;
+    int level = 0;
 
     public override void  OnInspectorGUI()
     {
-        int sizeMultiplier = EditorGUILayout.IntField("Level to edit", level);
+       // int sizeMultiplier = EditorGUILayout.IntField("Level to edit", level);
         LevelGenerator generatorRef = (LevelGenerator)target;
 
         if (GUILayout.Button("Generate"))

@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class LevelGenerator : MonoBehaviour
 {
-
+    public int EditingCurrentLevel = 0;
     public float xStart;
     public float yStart;
     public float xOffset;
@@ -55,23 +55,21 @@ public class LevelGenerator : MonoBehaviour
 
     public void LoadLevel(int level = 0)
     {
-        for (int i = 0; i < 18; i++)
+
+      for (int i=0;i< LevelsList[EditingCurrentLevel].LevelTiles.Count;i++)
         {
-            for (int j = 0; j < 11; j++)
-            {
-                Debug.Log(LevelsList[level].tileSet[i,j]);
-            }
+            TileList[i].tileID = LevelsList[EditingCurrentLevel].LevelTiles[i];
         }
+        RefreshTiles();
     }
 
     public void SaveLevel(int level = 0)
     {
-        for (int i = 0; i < 18; i++)
+        LevelsList[EditingCurrentLevel].LevelTiles = new List<int>();
+
+       foreach (LevelTile tile in TileList)
         {
-            for (int j = 0; j < 11; j++)
-            {
-                LevelsList[level].tileSet[i, j] = TileList[i * j + j].tileID;
-            }
+            LevelsList[EditingCurrentLevel].LevelTiles.Add(tile.tileID);
         }
     }
 

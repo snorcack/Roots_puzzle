@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LevelData : ScriptableObject
 {
-    public int[,] tileSet = new int [18,11];
+    public List<int> LevelTiles;
     public int LevelNumber;
 
 }
