@@ -10,6 +10,10 @@ public class LevelTile : MonoBehaviour
     public int tileID;
     public int tileType;
     public List<Sprite> SpriteList;
+    public SpriteRenderer rootRef;
+
+    public TreeRoot parentRoot;
+    public int branchIndex = 50;
 
     // Start is called before the first frame update
    
@@ -22,4 +26,25 @@ public class LevelTile : MonoBehaviour
         spriteRenderer.sprite = SpriteList[tileID];
         
     }
+
+
+    public void DisplayRootOnTile (bool status, int inTileType, TreeRoot parentRef , int parentBranch)
+    {
+        rootRef.enabled = status;
+
+        tileType = inTileType;
+        parentRoot = parentRef;
+        branchIndex = parentBranch;
+
+        Debug.Log("Setting values as" + status + inTileType + parentRef.name + parentBranch);
+    }
+
+    public void ResetTile ()
+    {
+        tileType = 0;
+        parentRoot = null;
+        branchIndex = 50;
+        rootRef.enabled  = false;
+    }
+
 }

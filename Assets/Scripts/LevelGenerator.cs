@@ -22,8 +22,8 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LevelsList = new List<LevelData>();
-        TileList = new List<LevelTile>();
+        //LevelsList = new List<LevelData>();
+       // TileList = new List<LevelTile>();
     }
 
     // Update is called once per frame
